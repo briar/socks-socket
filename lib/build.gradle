@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+    id 'idea'
+    id 'com.vanniktech.maven.publish'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    implementation 'org.briarproject:null-safety:0.1'
+}
+
+if (RELEASE_SIGNING_ENABLED != 'false') {
+    signing {
+        useGpgCmd()
+    }
+}
